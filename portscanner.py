@@ -1,14 +1,17 @@
+#!/python3
+
 import socket #importing socket module
 
-sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM) #for connecting to ip4 address
+sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM) #these two are for connecting to ip4 address
 
-host = input("IP Address: ")                #give your host here
-port = int(input("Port: "))          #pre-determined port
+host = input("[+]Enter the IP to connect: ")  #prompt the user for ip address    
+port = int(input("[+]Enter the Port to connect: "))  #prompt the user port 
+  
 
-def portscanner(host,port):     #definying a function     
-  if sock.connect(host,port):   
-    print("Port %d is open"%(port))
-  else:
-    print("Port %d is closed"%(port))
-   
+def portscanner(port):  #defining port scanner function
+    if sock.connect_ex((host,port)): #tuple as parameter
+      print("Port %d is closed"%(port))  #display if port is opened
+    else:
+      print("Port %d is opened"%(port))  #display if port is opened
+
 portscanner(port)
