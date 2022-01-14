@@ -2,8 +2,8 @@ import socket #importing socket module
 
 sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM) #for connecting to ip4 address
 
-host =                 #give your host here
-port = 443             #pre-determined port
+host = input("IP Address: ")                #give your host here
+port = int(input("Port: "))          #pre-determined port
 
 def portscanner(host,port):     #definying a function     
   if sock.connect(host,port):   
